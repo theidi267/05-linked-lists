@@ -8,3 +8,7 @@ before_script:
 script:
  - npm run lint
  - npm test
+
+addons:
+  apt:
+    update: true
