@@ -65,11 +65,5 @@ class LinkedList {
       currentNode = currentNode.next;
     }
   }
-  serialize(){
-    let container = [],
-      value = this.value,
-      next = this.next;
-
-  }
 }
 module.exports = LinkedList;
