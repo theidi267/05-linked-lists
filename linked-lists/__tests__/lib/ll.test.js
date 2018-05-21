@@ -9,7 +9,7 @@ describe('Linked List', () => {
     expect(list.head).toBeNull();
   });
 
-  it('append()', ()=> {  // Big O is 1 (constant time)
+  it('append()', ()=> {  
     let list = new LL();
     let initialValue = 'First One';
     list.append(initialValue);
@@ -24,7 +24,7 @@ describe('Linked List', () => {
     expect(list.head.next.next.value).toEqual(anotherOne);
   });
 
-  it('prepend()', () => {  // Big O is 1 (constant time)
+  it('prepend()', () => {  
     let list = new LL();
     let initialValue = 'First One';
     list.prepend(initialValue);
@@ -39,7 +39,7 @@ describe('Linked List', () => {
     expect(list.head.next.value).toEqual(newValue);
   });
 
-  it('reverse()', () => {  // big O is n2
+  it('reverse()', () => {  
     let list = new LL();
     let initialValue = 'First One';
     list.append(initialValue);
@@ -49,7 +49,27 @@ describe('Linked List', () => {
     list.append(thirdValue);    
        
     list.reverse();
-    console.log(list.head);
     expect(list.head.value).toEqual(thirdValue);
   });
+
+  it('remove()',() => {  
+    let list = new LL();
+    let initialValue = 1;
+    list.append(initialValue);
+    let secondValue = 2;
+    list.append(secondValue);
+    let thirdValue = 3;
+    list.append(thirdValue);  
+    
+    list.remove(list, 'Boo');
+    expect(list.head.next.next.value).toEqual(thirdValue);
+
+    list.remove(list, 2);
+    expect(list.head.next.value).toEqual(thirdValue);
+
+    list.remove(list, 1);
+    expect(list.head.value).toEqual(thirdValue);
+  })
+
+
 });
